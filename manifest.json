@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Alpha Assistant v3",
+  "short_name": "Alpha Assistant",
+  "version": "3.0.0",
+  "description": "Assistant for alpha.date with modular architecture.",
+  "minimum_chrome_version": "116",
+  "permissions": ["storage","tabs","activeTab","scripting","alarms"],
+  "host_permissions": ["https://alpha.date/*"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [{
+    "matches": ["https://alpha.date/*"],
+    "js": ["content.js"],
+    "css": ["styles/panel.css"],
+    "run_at": "document_idle"
+  }],
+  "action": {
+    "default_title": "Alpha Assistant v3"
+  }
+}
